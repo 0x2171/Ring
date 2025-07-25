@@ -383,13 +383,7 @@
         --diamond-border: 0.02em solid rgba(150, 255, 150, 0.7);
         --diamond-shadow: 0 0 0.05em #fff, 0 0 0.1em #66ff66, 0 0 0.2em rgba(0, 204, 0, 0.5);
     }
-    body.rainbow-ring {
-        --ring-text-bg: linear-gradient(to right, #ff0000 0%, #ff7f00 16%, #ffff00 33%, #00ff00 50%, #0000ff 66%, #4b0082 83%, #9400d3 100%);
-        --diamond-bg: radial-gradient(circle at 30% 30%, #ffffff, #ddddff 40%, #9999ff);
-        --diamond-border: 0.02em solid rgba(200, 200, 255, 0.7);
-        --diamond-shadow: 0 0 0.05em #fff, 0 0 0.1em #ccccff, 0 0 0.2em rgba(153, 153, 255, 0.5);
-    }
-
+    
     .color-preview.silver { background-color: #c0c0c0; }
     .color-preview.gold { background-color: #ffd700; }
     .color-preview.ruby { background-color: #e0115f; }
@@ -397,8 +391,6 @@
         background: linear-gradient(135deg, #f0f8ff, #e6f2ff 50%, #cce0ff);
     }
     .color-preview.emerald { background-color: #50c878; }
-    .color-preview.rainbow {
-        background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
     }
 
   </style>
@@ -435,9 +427,6 @@
     <div class="color-option" data-color="emerald">
         <div class="color-preview emerald"></div>Изумрудный
     </div>
-    <div class="color-option" data-color="rainbow">
-        <div class="color-preview rainbow"></div>Радужный
-    </div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -473,7 +462,7 @@
       colorOptions.on('click', function() {
         const selectedColor = $(this).data('color');
         body.removeClass(function(index, className) {
-          return (className.match(/(silver|gold|ruby|diamond|emerald|rainbow)-ring/g) || []).join(' ');
+          return (className.match(/(silver|gold|ruby|diamond|emerald)-ring/g) || []).join(' ');
         });
         
         body.addClass(selectedColor + '-ring');
